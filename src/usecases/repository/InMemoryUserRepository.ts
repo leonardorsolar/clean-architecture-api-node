@@ -15,17 +15,12 @@ export class InMemoryUserRepository implements UserRepository {
     }
   }
 
-  findUserByEmail (email: string): Promise<UserData> {
-    const users = this.repository.filter((user) => {
-      return user.email === email
-    })
-    if (users.length > 0) {
-      return users[0]
-    }
-    return null
+  async findUserByEmail (email: string): Promise<UserData> {
+    const found = this.repository.find(user => user.email === email)
+    return found || null
   }
 
-  findAllUsers (): Promise<UserData[]> {
+  async findAllUsers (): Promise<UserData[]> {
     throw new Error('Method not implemented.')
   }
 
