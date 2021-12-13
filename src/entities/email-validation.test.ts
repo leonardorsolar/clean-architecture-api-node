@@ -35,4 +35,31 @@ describe('Email validation', () => {
     const email = '@mail.com'
     expect(Email.validate(email)).toBeFalsy()
   })
+
+  test('should not accept empty domain', () => {
+    const email = 'any@'
+    expect(Email.validate(email)).toBeFalsy()
+  })
+
+  test('should not accept domain with a part large that 63 chars', () => {
+    const email = 'any@' + 'd'.repeat(64) + '.com'
+    expect(Email.validate(email)).toBeFalsy()
+  })
+
+  test('should not accept local part with invalid char', () => {
+    const email = 'any email@mail.com'
+    expect(Email.validate(email)).toBeFalsy()
+  })
+  test('should not accept local part with two dots', () => {
+    const email = 'an..email@mail.com'
+    expect(Email.validate(email)).toBeFalsy()
+  })
+  test('should not accept local part with ending dot', () => {
+    const email = 'any.@mail.com'
+    expect(Email.validate(email)).toBeFalsy()
+  })
+  test('should not accept email without anat-sign', () => {
+    const email = 'anymail.com'
+    expect(Email.validate(email)).toBeFalsy()
+  })
 })
