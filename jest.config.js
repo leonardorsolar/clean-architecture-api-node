@@ -1,6 +1,6 @@
 /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 module.exports = {
-  roots: ['<rootDir>/src'],
+  roots: ['<rootDir>/test'],
   coverageDirectory: 'coverage',
   collectCoverageFrom: [
     '<rootDir>/src/**/*',

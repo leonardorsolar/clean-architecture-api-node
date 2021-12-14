@@ -1,8 +1,8 @@
-import { InvalidEmailError } from '../entities/errors/invalid-email-error'
-import { InvalidNameError } from '../entities/errors/invalid-name-error'
-import { User } from '../entities/user'
-import { UserData } from '../entities/user-data'
-import { Either, left, right } from '../share/either'
+import { InvalidEmailError } from '../../../src/entities/errors/invalid-email-error'
+import { InvalidNameError } from '../../../src/entities/errors/invalid-name-error'
+import { User } from '../../../src/entities/user'
+import { UserData } from '../../../src/entities/user-data'
+import { Either, left, right } from '../../share/either'
 import { UserRepository } from './ports/user-repository'
 
 export class RegisterUserOnMainlingList {
