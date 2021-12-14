@@ -1,7 +1,7 @@
 {
     "*.{ts,tsx}": [
       "eslint 'src/**' --fix",
-      "npm run test: staged --passWithNoTests"
+      "npm run test-staged --passWithNoTests"
      ]
   }
  
