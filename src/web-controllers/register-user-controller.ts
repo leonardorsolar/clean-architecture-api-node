@@ -1,13 +1,13 @@
 import { UserData } from '../../src/entities'
-import { RegisterUserOnMainlingList } from '../../src/usecases/register-user-on-maling-list'
+import { UseCase } from '../usecases/ports'
 import { MissingParamError } from './errors/missing-param-error'
 import { HttpRequest, HttpResponse } from './ports'
 import { badRequest, created, serverError } from './util/http-helpers'
 
 export class RegisterUserController {
-private readonly usecase: RegisterUserOnMainlingList
+private readonly usecase: UseCase
 
-constructor (usecase: RegisterUserOnMainlingList) {
+constructor (usecase: UseCase) {
   this.usecase = usecase
 }
 
@@ -19,8 +19,8 @@ public async handle (request: HttpRequest): Promise<HttpResponse> {
       return badRequest(new MissingParamError(missingParam.trim()))
     }
 
-    const UserData: UserData = request.body
-    const response = await this.usecase.registerUserOnMainlingList(UserData)
+    const userData: UserData = request.body
+    const response = await this.usecase.perform(userData)
 
     if (response.isLeft()) {
       return badRequest(response.value)
