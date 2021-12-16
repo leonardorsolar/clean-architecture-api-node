@@ -7,7 +7,7 @@ export const adaptRoute = (controller: RegisterUserController) => {
     const httpRequest: HttpRequest = {
       body: req.body
     }
-    const httpResponse = await controller.handle(httpRequest)
+    const httpResponse: any = await controller.handle(httpRequest)
     res.status(httpResponse.statusCode).json(httpResponse.body)
   }
 }
