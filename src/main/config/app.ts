@@ -1,6 +1,6 @@
 import express from 'express'
 import setupMiddleware from './middleware'
-import setupRoutes from './routes/register.route'
+import setupRoutes from '../routes/register.route'
 
 const app = express()
 setupMiddleware(app)
