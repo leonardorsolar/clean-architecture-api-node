@@ -10,7 +10,7 @@
     "test-integration": "npm test -- --Watch - c jest-integration-config.js",
     "test-staged": "npm test -- --findRelatedTests",
     "test-ci": "npm test -- --coverage",
-    "build": "tsc"
+    "build": "rimraf dist && tsc -p tsconfig-build.json"
   },
   "keywords": [],
   "author": "",
@@ -39,5 +39,8 @@
     
     "express": "^4.17.1",
     "module-alias": "^2.2.2"
+  }
+  "_modulesAliases": {
+    "@": "dist"
   }
 }
